@@ -59,5 +59,9 @@ public class BadConsequence {
     public boolean getDeath(){
         return death;
     }
+    
+    public String toString(){
+        return "text =" + text + ", levels =" + levels + ", nVisibleTreasures =" + nVisibleTreasures + ", nHiddenTreasures =" + nHiddenTreasures + ", death =" + death + ", specificHiddenTreasures =" + specificHiddenTreasures + ", specificVisibleTreasures =" + specificVisibleTreasures;
+    }
 
 }
