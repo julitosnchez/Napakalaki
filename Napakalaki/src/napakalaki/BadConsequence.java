@@ -61,7 +61,7 @@ public class BadConsequence {
     }
     
     public String toString(){
-        return "text =" + text + ", levels =" + levels + ", nVisibleTreasures =" + nVisibleTreasures + ", nHiddenTreasures =" + nHiddenTreasures + ", death =" + death + ", specificHiddenTreasures =" + specificHiddenTreasures + ", specificVisibleTreasures =" + specificVisibleTreasures;
+        return "Texto =" + text + ", Niveles =" + Integer.toString(levels) + ", TesorosVisibles =" + Integer.toString(nVisibleTreasures) + ", TesorosEscondidos =" + Integer.toString(nHiddenTreasures) + ", death =" + Boolean.toString(death);
     }
 
 }
