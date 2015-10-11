@@ -21,19 +21,19 @@ public class BadConsequence {
     private ArrayList<TreasureKind>specificVisibleTreasures = new ArrayList();
     
     //Constructor 1
-    public void BadConsequence(String text,int levels,int nVisible,int nHidden){
+    public BadConsequence(String text,int levels,int nVisible,int nHidden){
         this.text = text;
         this.levels = levels;
         nVisibleTreasures = nVisible;
         nHiddenTreasures = nHidden;
     }
     //Constructor 2
-    public void BadConsequence(String text,boolean death){
+    public BadConsequence(String text,boolean death){
         this.text = text;
         this.death = death;
     }
     //Constructor 3
-    public void BadConsequence(String text, int levels, ArrayList<TreasureKind> tVisible, ArrayList<TreasureKind> tHidden){
+    public BadConsequence(String text, int levels, ArrayList<TreasureKind> tVisible, ArrayList<TreasureKind> tHidden){
         this.text = text;
         this.levels = levels;
         specificHiddenTreasures = tHidden;
