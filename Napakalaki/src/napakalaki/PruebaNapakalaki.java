@@ -21,9 +21,17 @@ public class PruebaNapakalaki {
        BadConsequence bc;
        Prize prize;
        
-       //Añadimos monstruo 'El rey de rosa'
+       //Comenzamos a añadir monstruos
+       //'EL REY ROSA'
        bc =  new BadConsequence("Pierdes 5 niveles y 3 tesoros visibles",5, 3, 0);
        prize = new Prize(4,2);
+       
+       monstruos.add(new Monster("El rey rosa",13,bc,prize));
+       //ÁNGELES DE LA NOCHE IBICENCA
+       bc = new BadConsequence("Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo. Descarta 1 mano visible y 1 mano oculta",0,new ArrayList(Arrays.asList(TreasureKind.ONEHAND)),new ArrayList(Arrays.asList(TreasureKind.ONEHAND)));
+       prize = new Prize(4,1);
+       
+       monstruos.add(new Monster("Ángeles de la noche ibicenca",14,bc,prize));
        
        
     }
