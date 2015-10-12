@@ -58,6 +58,66 @@ public class PruebaNapakalaki {
        prize = new Prize(2,1);
        monstruos.add(new Monster("H.P.Munchcraft",6,bc,prize));
        
+       //BICHGOOTH
+       bc = new BadConsequence("Sientes bichos bajo la ropa.Descarta la armadura visible",0,new ArrayList(Arrays.asList(TreasureKind.ARMOR)),null);
+       prize = new Prize(1,1);
+       monstruos.add(new Monster("Bichgooth",2,bc,prize));
+       
+       //LA QUE REDACTA EN LAS TINIEBLAS
+       bc = new BadConsequence("Toses los pulmones y pierdes 2 niveles",2,null,null);
+       prize = new Prize(1,1);
+       monstruos.add(new Monster("La que redacata en las tinieblas", 2, bc, prize));
+       
+       //LOS HONDOS
+       bc = new BadConsequence("Estos monstruos resultan bastante superficiales y te aburren mortalmente.Estas muerto",true);
+       prize = new Prize(2,1);
+       monstruos.add(new Monster("Los hondos",8, bc, prize));
+       
+       //SEMILLAS CTHULHU
+       bc = new BadConsequence("Pierdes 2 niveles y 2 tesoros ocultos",2,0,2);
+       prize = new Prize(2,1);
+       monstruos.add(new Monster("Semillas Cthulhu",4,bc, prize));
+       
+       //DAMEARGO
+       bc = new BadConsequence("Te intentas escaquear.Pierdes una mano visible",0,new ArrayList(Arrays.asList(TreasureKind.ONEHAND)), null);
+       prize = new Prize(2,1);
+       monstruos.add(new Monster("Dameargo",1,bc,prize));
+       
+       //POLLIPÓLIPO VOLANTE
+       bc = new BadConsequence("Da mucho asquito.Pierdes 3 niveles",3, null, null);
+       prize = new Prize(1,1);
+       monstruos.add(new Monster("Pollipólipo volante",2, bc, prize));
+       
+       //YSKHTIHYSSG-GOTH
+       bc = new BadConsequence("No le hace gracia que pronuncien mal su nombre.Estas muerto", true);
+       prize = new Prize(3,1);
+       monstruos.add(new Monster("Yskhtihyssg-Goth",12, bc, prize));
+       
+       //FAMILIA FELIZ
+       bc = new BadConsequence("La familia te atrapa.Estas muerto", true);
+       prize = new Prize(4,1);
+       monstruos.add(new Monster("Familia feliz",1, bc, prize));
+       
+       //ROBOGGOTH
+       bc = new BadConsequence("La quinta directiva primaria te obliga a perder 2 niveles y un tesoro de 2 manos visibles",2,new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS)), null);
+       prize = new Prize(2,1);
+       monstruos.add(new Monster("Roboggoth",8, bc, prize));
+       
+       //EL ESPIA
+       bc = new BadConsequence("Te asusta en la noche.Pierdes un casco visible",0,new ArrayList(Arrays.asList(TreasureKind.HELMET)), null);
+       prize = new Prize(1,1);
+       monstruos.add(new Monster("El espia",5, bc, prize));
+       
+       //EL LENGUAS
+       bc = new BadConsequence("Menudo susto te llevas.Pierdes 2 niveles y 5 tesoros visibles",2,5,0);
+       prize = new Prize(1,1);
+       monstruos.add(new Monster("El lenguas",20, bc, prize));
+       
+       //BICÉFALO
+       bc = new BadConsequence("Te faltan manos para tanta cabeza.Pierdes 3 niveles y tus tesoros visibles de las manos",3,new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS)), null);
+       prize = new Prize(1,1);
+       monstruos.add(new Monster("Bicéfalo",20, bc, prize));
+       
        
        
     }
