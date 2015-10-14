@@ -125,7 +125,12 @@ public class PruebaNapakalaki {
            }
            
        }
-       
+       //Mostramos monstruos que sólo tengan pérdida de niveles ¿CONDICIÓN?
+       for(int i=0; i<monstruos.size(); i++){
+           if(monstruos.get(i).getBC().getLevels()!=0 && monstruos.get(i).getBC().getDeath()==false && monstruos.get(i).getBC().getNHiddenTreasures() == 0 && monstruos.get(i).getBC().getNVisibleTreasures() == 0){
+               System.out.println(monstruos.get(i) + "\n");
+           }
     }
     
+ }
 }

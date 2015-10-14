@@ -30,6 +30,14 @@ public class Monster {
         return combatLevel;
     }
     
+    public BadConsequence getBC(){
+        return bc;
+    }
+    
+    public Prize getPrize(){
+        return price;
+    }
+    
     public String toString(){
         return "NombreMonstruo = " + name + ", NivelCombate = " + Integer.toString(combatLevel) + ", Buen rollo = " + price.toString() + ", Mal rollo =" + bc.toString();
     }
