@@ -119,18 +119,31 @@ public class PruebaNapakalaki {
        monstruos.add(new Monster("Bicéfalo",20, bc, prize));
        
        //Muestra los monstruos con un nivel de combate > 10
-       for(int i=0; i<monstruos.size(); i++) {
+       for (int i=0; i<monstruos.size(); i++) {
            if (monstruos.get(i).getCombatLevel() > 10){
                System.out.println(monstruos.get(i) + "\n" );
            }
            
        }
        //Mostramos monstruos que sólo tengan pérdida de niveles ¿CONDICIÓN?
-       for(int i=0; i<monstruos.size(); i++){
+       for (int i=0; i<monstruos.size(); i++){
            if(monstruos.get(i).getBC().getLevels()!=0 && monstruos.get(i).getBC().getDeath()==false && monstruos.get(i).getBC().getNHiddenTreasures() == 0 && monstruos.get(i).getBC().getNVisibleTreasures() == 0){
                System.out.println(monstruos.get(i) + "\n");
            }
+        }
+       //Monstramos los monstruos cuyo mal rollo indique una ganancia de niveles superior a 1
+       for (int i = 0; i < monstruos.size(); i++){
+           if(monstruos.get(i).getPrize().getLevel() > 1)
+               System.out.println(monstruos.get(i) + "\n");
+                
+        }
+       /*Monstramos monstruos cuyo mal rollo suponga la pérdida de un determinado tipo de tesoros ya sea visibles y/o ocultos
+        for (int i = 0; i < monstruos.size(); i++){
+           if(monstruos.get(i).getBC(). > 1)
+               System.out.println(monstruos.get(i) + "\n");
+                
+        }
+        */ //¿CÓMO LO HACEMOS CON LOS ARRAYS?
+       
     }
-    
- }
 }
