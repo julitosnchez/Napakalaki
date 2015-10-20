@@ -16,7 +16,12 @@ public class PruebaNapakalaki {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       ArrayList<Monster> monstruos = new ArrayList();
+       BadConsequence bc,bc2;
+       bc = new BadConsequence("hola", true);
+       bc2 = bc;
+        System.out.println(bc2.getDeath());
+        
+       /*ArrayList<Monster> monstruos = new ArrayList();
        
        BadConsequence bc;
        Prize prize;
@@ -137,7 +142,7 @@ public class PruebaNapakalaki {
                System.out.println(monstruos.get(i) + "\n");
                 
         }
-       /*Monstramos monstruos cuyo mal rollo suponga la pérdida de un determinado tipo de tesoros ya sea visibles y/o ocultos
+       Monstramos monstruos cuyo mal rollo suponga la pérdida de un determinado tipo de tesoros ya sea visibles y/o ocultos
         for (int i = 0; i < monstruos.size(); i++){
            if(monstruos.get(i).getBC(). > 1)
                System.out.println(monstruos.get(i) + "\n");
