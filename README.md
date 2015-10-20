@@ -1,2 +1,4 @@
 # Napakalaki
-Práctica 1 PDOO-ugr. Napakalaki
+Implementando el juego Napakalaki para la asignatura PDOO (UGR).
+
+# Java
