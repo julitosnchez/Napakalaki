@@ -39,6 +39,6 @@ public class Monster {
     }
     
     public String toString(){
-        return "NombreMonstruo = " + name + ", NivelCombate = " + Integer.toString(combatLevel) + ", Buen rollo = " + price.toString() + ", Mal rollo =" + bc.toString();
+        return "NombreMonstruo = " + name + ", NivelCombate = " + Integer.toString(combatLevel) + ", Buen rollo --> " + price.toString() + ", Mal rollo --> " + bc.toString();
     }
 }
