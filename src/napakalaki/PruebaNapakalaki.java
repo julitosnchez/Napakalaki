@@ -119,7 +119,6 @@ public class PruebaNapakalaki {
        prize = new Prize(1,1);
        monstruos.add(new Monster("Bicéfalo",20, bc, prize));
        
-       
         //Muestra los monstruos con un nivel de combate > 10
        for (int i=0; i<monstruos.size(); i++) {
            if (monstruos.get(i).getCombatLevel() > 10){
@@ -128,9 +127,10 @@ public class PruebaNapakalaki {
            
        }
 
-       //Mostramos monstruos que sólo tengan pérdida de niveles ¿CONDICIÓN --> HACE FALTA CREAR METODO EN BADCONSEQUENCE QUE DEVUELVA EL ARRAY SPECIFIC.. Y LUEGO COMPROBAR EN EL IF SI ESTÁ VACÍO?
+       //Mostramos monstruos que sólo tengan pérdida de niveles
        for (int i=0; i<monstruos.size(); i++){
-           if(monstruos.get(i).getBC().getLevels()!=0 && monstruos.get(i).getBC().getDeath()==false && monstruos.get(i).getBC().getNHiddenTreasures() == 0 && monstruos.get(i).getBC().getNVisibleTreasures() == 0){
+           if(monstruos.get(i).getBC().getLevels()!=0 && monstruos.get(i).getBC().getDeath()==false && monstruos.get(i).getBC().getNHiddenTreasures() == 0 && monstruos.get(i).getBC().getNVisibleTreasures() == 0 && monstruos.get(i).getBC().getSpecificHiddenTreasures().isEmpty() && monstruos.get(i).getBC().getSpecificVisibleTreasures().isEmpty())
+           {
                System.out.println(monstruos.get(i) + "\n");
            }
         }
@@ -140,11 +140,10 @@ public class PruebaNapakalaki {
                System.out.println(monstruos.get(i) + "\n");
                 
         }
-       //Monstramos monstruos cuyo mal rollo suponga la pérdida de un determinado tipo de tesoros ya sea visibles y/o ocultos----> MISMA DUDA QUE ARRIBA CON ARRAYS
+       //Monstramos monstruos cuyo mal rollo suponga la pérdida de un determinado tipo de tesoros ya sea visibles y/o ocultos
         for (int i = 0; i < monstruos.size(); i++){
-           //if(monstruos.get(i).getBC(). > 1) ?¿
+           if(!monstruos.get(i).getBC().getSpecificHiddenTreasures().isEmpty() || !monstruos.get(i).getBC().getSpecificVisibleTreasures().isEmpty())
                System.out.println(monstruos.get(i) + "\n");
         }
-       
     }
 }
