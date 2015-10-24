@@ -10,8 +10,8 @@ package napakalaki;
  * @author julitosnchez
  */
 public class Prize {
-    private int treasures;
-    private int level;
+    private final int treasures;
+    private final int level;
     
     public Prize(int treasures,int level){
         this.treasures = treasures;
@@ -26,6 +26,7 @@ public class Prize {
         return level;
     }
     
+    @Override
     public String toString(){
         return "Treasures = " + Integer.toString(treasures) + " levels = " + Integer.toString(level);
     }

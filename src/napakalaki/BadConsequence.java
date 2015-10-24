@@ -68,6 +68,8 @@ public class BadConsequence {
         return death;
     }
     
+    
+    @Override
     public String toString(){
         return text + ", NivelesPerdidos = " + Integer.toString(levels) + ", TesorosVisibles = " + Integer.toString(nVisibleTreasures) + ", TesorosEscondidos = " + Integer.toString(nHiddenTreasures) + ", death = " + Boolean.toString(death) + ", Array de tesoros escondidos = " + specificHiddenTreasures.toString() + ", Array de tesoros visibles = " + specificVisibleTreasures.toString();
     }
