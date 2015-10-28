@@ -19,8 +19,10 @@ public class PruebaNapakalaki {
         
        ArrayList<Monster> monstruos = new ArrayList();
        
+       AlterEgo miAlterEgo;
        BadConsequence bc;
        Prize prize;
+       
        
        //Comenzamos a añadir monstruos
        
@@ -33,6 +35,8 @@ public class PruebaNapakalaki {
        bc = new BadConsequence("Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo. Descarta 1 mano visible y 1 mano oculta",0,new ArrayList(Arrays.asList(TreasureKind.ONEHAND)),new ArrayList(Arrays.asList(TreasureKind.ONEHAND)));
        prize = new Prize(4,1);
        monstruos.add(new Monster("Ángeles de la noche ibicenca",14,bc,prize));
+       
+       miAlterEgo = new AlterEgo(11,monstruos);
        
        //3 BYAKHEES DE BONANZA
        bc = new BadConsequence("Pierdes tu armadura visible y otra oculta",0,new ArrayList(Arrays.asList(TreasureKind.ARMOR)),new ArrayList(Arrays.asList(TreasureKind.ARMOR)));
@@ -144,6 +148,12 @@ public class PruebaNapakalaki {
         for (int i = 0; i < monstruos.size(); i++){
            if(!monstruos.get(i).getBC().getSpecificHiddenTreasures().isEmpty() || !monstruos.get(i).getBC().getSpecificVisibleTreasures().isEmpty())
                System.out.println(monstruos.get(i) + "\n");
+        }
+        
+        //EXAM-iniciio
+        for (int i = 0; i < monstruos.size(); i++) {
+            if(monstruos.get(i).getMiAlterEgo().getNivelBondad > 10)
+                System.out.println(monstruos.get(i));
         }
     }
 }
