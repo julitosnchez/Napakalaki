@@ -36,7 +36,10 @@ public class PruebaNapakalaki {
        prize = new Prize(4,1);
        monstruos.add(new Monster("Ángeles de la noche ibicenca",14,bc,prize));
        
+       //EXAM-inicio
        miAlterEgo = new AlterEgo(11,monstruos);
+       monstruos.get(2).setMiAlterEgo(miAlterEgo);
+      
        
        //3 BYAKHEES DE BONANZA
        bc = new BadConsequence("Pierdes tu armadura visible y otra oculta",0,new ArrayList(Arrays.asList(TreasureKind.ARMOR)),new ArrayList(Arrays.asList(TreasureKind.ARMOR)));
@@ -123,7 +126,8 @@ public class PruebaNapakalaki {
        prize = new Prize(1,1);
        monstruos.add(new Monster("Bicéfalo",20, bc, prize));
        
-        //Muestra los monstruos con un nivel de combate > 10
+       /*
+       //Muestra los monstruos con un nivel de combate > 10
        for (int i=0; i<monstruos.size(); i++) {
            if (monstruos.get(i).getCombatLevel() > 10){
                System.out.println(monstruos.get(i) + "\n" );
@@ -149,10 +153,11 @@ public class PruebaNapakalaki {
            if(!monstruos.get(i).getBC().getSpecificHiddenTreasures().isEmpty() || !monstruos.get(i).getBC().getSpecificVisibleTreasures().isEmpty())
                System.out.println(monstruos.get(i) + "\n");
         }
+        */
         
         //EXAM-iniciio
         for (int i = 0; i < monstruos.size(); i++) {
-            if(monstruos.get(i).getMiAlterEgo().getNivelBondad > 10)
+            if(monstruos.get(i).getMiAlterEgo().getNivelBondad() > 10)
                 System.out.println(monstruos.get(i));
         }
     }
