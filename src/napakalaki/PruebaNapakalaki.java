@@ -37,8 +37,8 @@ public class PruebaNapakalaki {
        monstruos.add(new Monster("Ángeles de la noche ibicenca",14,bc,prize));
        
        //EXAM-inicio
-       miAlterEgo = new AlterEgo(11,monstruos);
-       monstruos.get(2).setMiAlterEgo(miAlterEgo);
+       miAlterEgo = new AlterEgo(13,monstruos);
+       monstruos.get(1).setMiAlterEgo(miAlterEgo);
       
        
        //3 BYAKHEES DE BONANZA
