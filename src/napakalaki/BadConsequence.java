@@ -64,6 +64,17 @@ public class BadConsequence {
         return specificVisibleTreasures;
     }
     
+    public boolean isEmpty(){
+        if(levels == 0 && nVisibleTreasures == 0 && nHiddenTreasures == 0 && !death && specificHiddenTreasures.isEmpty() && specificVisibleTreasures.isEmpty())
+            return true;
+        return false;
+    }
+    
+    public void substractVisibleTreasure(Treasure t){
+        
+    }
+    
+    
     public boolean getDeath(){
         return death;
     }
