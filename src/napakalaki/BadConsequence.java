@@ -11,6 +11,7 @@ import java.util.*;
  * @author julitosnchez
  */
 public class BadConsequence {
+    private static final int MAXTREASURES = 10;
     private String text;
     private int levels;
     private int nVisibleTreasures;
@@ -73,6 +74,12 @@ public class BadConsequence {
     public void substractVisibleTreasure(Treasure t){
         
     }
+    
+    public void substractHiddenTreasure(Treasure t){
+        
+    }
+    
+    public BadConsequence adjustToFitTreasureLists(Treasure v,ArrayList<Treasure> h)
     
     
     public boolean getDeath(){

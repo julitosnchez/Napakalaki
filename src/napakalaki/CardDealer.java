@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author JULIO
+ * @author julitosnchez
  */
 public class CardDealer {
     private static CardDealer instance = null;
