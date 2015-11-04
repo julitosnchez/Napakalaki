@@ -11,7 +11,7 @@ import java.util.*;
  * @author julitosnchez
  */
 public class BadConsequence {
-    private static final int MAXTREASURES = 10;
+    static final int MAXTREASURES = 10;
     private String text;
     private int levels;
     private int nVisibleTreasures;

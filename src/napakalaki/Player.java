@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author julitosnchez
  */
 public class Player {
-    private static final int MAXLEVEL = 10;
+    static final int MAXLEVEL = 10;
     private String name;
     private int level;
     private boolean dead = true;
@@ -26,22 +26,32 @@ public class Player {
         
     }
     public String getName(){
-        
+        return name;
     }
     private void bringToLife(){
-        
+        dead = false;
     }
     private int getCombatLevel(){
-        
+        int nivelCompleto = 0;
+        for (int i = 0; i < visibleTreasures.size(); i++)
+            nivelCompleto = nivelCompleto + visibleTreasures.get(i).getBonus();
+        nivelCompleto = nivelCompleto + level;
+        if(nivelCompleto > MAXLEVEL)
+            return MAXLEVEL;
+        else
+            return nivelCompleto;
+            
     }
-    private void incrementLevels(int l){
-        
+    private void incrementLevels(int i){
+        if(level+i < MAXLEVEL)
+            level = level+i;
     }
     private void decrementLevels(int l){
-        
+        if(level-l > 1)
+            level = level-l;
     }
     private void setPendingBadConsequence(BadConsequence b){
-        
+        pendingBadConsequence = b;
     }
     private void applyPrize(Monster m){
         
@@ -53,19 +63,24 @@ public class Player {
         
     }
     private int howManyVisibleTreasures(TreasureKind tKind){
-        
+        int contador = 0;
+        for (int i = 0; i < visibleTreasures.size(); i++)
+            if(visibleTreasures.get(i).getType() == tKind)
+                contador++;
+        return contador;
     }
     private void dielfNoTreasures(){
-        
+        if(visibleTreasures.isEmpty() && hiddenTreasures.isEmpty())
+            dead = true;
     }
     public boolean isDead(){
-        
+        return dead;
     }
     public ArrayList<Treasure> getHiddenTreasures(){
-        
+        return hiddenTreasures;
     }
     public ArrayList<Treasure> getVisibleTreasures(){
-        
+        return visibleTreasures;
     }
     public CombatResult combat(Monster m){
         
@@ -80,31 +95,34 @@ public class Player {
         
     }
     public boolean validState(){
-        
+        if(pendingBadConsequence.isEmpty() && hiddenTreasures.size() <= 4)
+          return true;
+    return false;
     }
+        
     public void initTreasures(){
         
     }
     public int getLevels(){
-        
+        return level;
     }
     public Treasure stealTreasure(){
         
     }
     public void setEnemy(Player enemy){
-        
+        this.enemy = enemy;
     }
     private Treasure giveMeATreasure(){
         
     }
     public boolean canISteal(){
-        
+        return canISteal;
     }
     private boolean canYouGiveMeATreasure(){
-        
+        return hiddenTreasures.isEmpty();
     }
     private void haveStolen(){
-        
+        canISteal = false;
     }
     public void discardAllTreasures(){
         
