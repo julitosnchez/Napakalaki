@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package napakalaki;
+import java.util.Random;
 
 /**
  *
@@ -17,9 +18,13 @@ public class Dice {
     }
 
     public static Dice getInstance(){
-        
+        if(instance == null)
+            instance = new Dice();
+        return instance;
     }
+    
     public int nextNumber(){
-        
+       Random r = new Random();
+       return (int)(r.nextDouble()*6 +1);
     }
 }

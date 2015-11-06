@@ -14,26 +14,18 @@ public class Monster {
     private int combatLevel;
     private Prize price;
     private BadConsequence bc;
-    private AlterEgo miAlterEgo;
     
     public Monster(String name,int level,BadConsequence bc,Prize price){
         this.name = name;
         combatLevel= level;
         this.bc = bc;
         this.price = price;
-        miAlterEgo = new AlterEgo(10);
     }
     
     public String getName(){
         return name;
     }
-    public AlterEgo getMiAlterEgo(){
-        return miAlterEgo;
-    }
     
-    public void setMiAlterEgo(AlterEgo ae){
-        miAlterEgo = ae;
-    }
     public int getCombatLevel(){
         return combatLevel;
     }
@@ -42,8 +34,12 @@ public class Monster {
         return bc;
     }
     
-    public Prize getPrize(){
-        return price;
+    public int getLevelsGained(){
+        return price.getLevel();
+    }
+    
+    public int getTreasuresGained(){
+        return price.getTreasures();
     }
     
     

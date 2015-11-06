@@ -36,9 +36,6 @@ public class PruebaNapakalaki {
        prize = new Prize(4,1);
        monstruos.add(new Monster("Ángeles de la noche ibicenca",14,bc,prize));
        
-       //EXAM-inicio
-       miAlterEgo = new AlterEgo(13,monstruos);
-       monstruos.get(1).setMiAlterEgo(miAlterEgo);
       
        
        //3 BYAKHEES DE BONANZA
@@ -57,7 +54,7 @@ public class PruebaNapakalaki {
        monstruos.add(new Monster("El sopor de Dunwich",2,bc,prize));
        
        //EL GORRÓN EN EL UMBRAL
-       bc = new BadConsequence("Pierdes todos tus tesoros visibles",0,new ArrayList(Arrays.asList(TreasureKind.ARMOR,TreasureKind.BOTHHANDS,TreasureKind.HELMET,TreasureKind.ONEHAND,TreasureKind.SHOES)),new ArrayList());
+       bc = new BadConsequence("Pierdes todos tus tesoros visibles",0,5,0);
        prize = new Prize(3,1);
        monstruos.add(new Monster("El gorrón en el umbral",10,bc,prize));
        
@@ -126,7 +123,7 @@ public class PruebaNapakalaki {
        prize = new Prize(1,1);
        monstruos.add(new Monster("Bicéfalo",20, bc, prize));
        
-       /*
+       
        //Muestra los monstruos con un nivel de combate > 10
        for (int i=0; i<monstruos.size(); i++) {
            if (monstruos.get(i).getCombatLevel() > 10){
@@ -153,12 +150,6 @@ public class PruebaNapakalaki {
            if(!monstruos.get(i).getBC().getSpecificHiddenTreasures().isEmpty() || !monstruos.get(i).getBC().getSpecificVisibleTreasures().isEmpty())
                System.out.println(monstruos.get(i) + "\n");
         }
-        */
-        
-        //EXAM-iniciio
-        for (int i = 0; i < monstruos.size(); i++) {
-            if(monstruos.get(i).getMiAlterEgo().getNivelBondad() > 10)
-                System.out.println(monstruos.get(i));
-        }
+       
     }
 }
