@@ -13,9 +13,7 @@ import java.util.Random;
 public class Dice {
     private static Dice instance = null;
     
-    private Dice(){
-        
-    }
+    private Dice(){}
 
     public static Dice getInstance(){
         if(instance == null)

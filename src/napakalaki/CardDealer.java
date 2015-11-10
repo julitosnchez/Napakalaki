@@ -15,7 +15,7 @@ import java.util.Random;
 public class CardDealer {
     
     //Atributos
-    private static CardDealer instance = null;
+    private static final CardDealer instance = new CardDealer();
     private ArrayList<Monster> unusedMonsters;
     private ArrayList<Monster> usedMonsters;
     private ArrayList<Treasure> unusedTreasures;
@@ -28,6 +28,10 @@ public class CardDealer {
         unusedTreasures = new ArrayList();
         usedTreasures = new ArrayList();
         
+    }
+    
+    public static CardDealer getInstance(){
+        return instance;
     }
     
     //Metodos

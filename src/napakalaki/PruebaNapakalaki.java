@@ -19,7 +19,6 @@ public class PruebaNapakalaki {
         
        ArrayList<Monster> monstruos = new ArrayList();
        
-       AlterEgo miAlterEgo;
        BadConsequence bc;
        Prize prize;
        
@@ -42,6 +41,13 @@ public class PruebaNapakalaki {
        bc = new BadConsequence("Pierdes tu armadura visible y otra oculta",0,new ArrayList(Arrays.asList(TreasureKind.ARMOR)),new ArrayList(Arrays.asList(TreasureKind.ARMOR)));
        prize = new Prize(2,1);
        monstruos.add(new Monster("3 Byakhees de bonanza",8,bc,prize));
+       
+       //------------------------------------FOR ITERADOR---------------------------------------------------------------
+       for (Monster monstruo : monstruos ){
+           System.out.println(monstruo.toString()+"\n");
+       }
+       
+       //--------------------------------------------------------------------------------------------------------------
        
        //CHIBITHULHU
        bc = new BadConsequence("Embobados con el lindo priminegio te descartas de tu casco visible",0,new ArrayList(Arrays.asList(TreasureKind.HELMET)),new ArrayList());

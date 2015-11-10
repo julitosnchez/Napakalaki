@@ -79,7 +79,7 @@ public class BadConsequence {
         
     }
     
-    public BadConsequence adjustToFitTreasureLists(Treasure v,ArrayList<Treasure> h)
+    public BadConsequence adjustToFitTreasureLists(Treasure v,ArrayList<Treasure> h){}
     
     
     public boolean getDeath(){
