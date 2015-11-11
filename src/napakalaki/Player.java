@@ -5,6 +5,7 @@
  */
 package napakalaki;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -16,7 +17,9 @@ public class Player {
     private int level;
     private boolean dead = true;
     private boolean canISteal = true;
-    private Player enemy;
+    //EXAM-INICIO
+    //private Player enemy;
+    private Dice dice;
     private BadConsequence pendingBadConsequence;
     private ArrayList<Treasure> visibleTreasures;
     private ArrayList<Treasure> hiddenTreasures;
@@ -24,6 +27,12 @@ public class Player {
     
     public Player(String name){
         
+    }
+    
+    public int rollDice(){
+        Random r = new Random();
+        int n = r.nextInt(5)+1;
+        return n;
     }
     public String getName(){
         return name;
@@ -109,9 +118,7 @@ public class Player {
     public Treasure stealTreasure(){
         
     }
-    public void setEnemy(Player enemy){
-        this.enemy = enemy;
-    }
+  
     private Treasure giveMeATreasure(){
         
     }

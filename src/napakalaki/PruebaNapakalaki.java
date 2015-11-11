@@ -43,9 +43,9 @@ public class PruebaNapakalaki {
        monstruos.add(new Monster("3 Byakhees de bonanza",8,bc,prize));
        
        //------------------------------------FOR ITERADOR---------------------------------------------------------------
-       for (Monster monstruo : monstruos ){
-           System.out.println(monstruo.toString()+"\n");
-       }
+       //for (Monster monstruo : monstruos ){
+         //  System.out.println(monstruo.toString()+"\n");
+       //}
        
        //--------------------------------------------------------------------------------------------------------------
        
