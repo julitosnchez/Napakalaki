@@ -25,7 +25,8 @@ public class PruebaNapakalaki {
        
        
        //Comenzamos a añadir monstruos
-       
+      
+       /*
        //EL REY ROSA
        bc =  new BadConsequence("Pierdes 5 niveles y 3 tesoros visibles",5, 3, 0);
        prize = new Prize(4,2);
@@ -150,6 +151,13 @@ public class PruebaNapakalaki {
            if(!monstruos.get(i).getBC().getSpecificHiddenTreasures().isEmpty() || !monstruos.get(i).getBC().getSpecificVisibleTreasures().isEmpty())
                System.out.println(monstruos.get(i) + "\n");
         }
-       
+      */
+       Random r = new Random();
+       int n;
+        for (int i = 0; i < 100; i++) {
+            n = r.nextInt(6) +1;
+            System.out.println(n+"\n");
+        }
     }
+    
 }
