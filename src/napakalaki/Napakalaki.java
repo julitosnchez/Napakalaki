@@ -32,6 +32,8 @@ public class Napakalaki {
             players.add(p);
         }
     }
+    
+    //Decide qué jugador es el siguiente en jugar.
     private Player nextPlayer(){
         if(players.get(0) == currentPlayer){
             Random r = new Random();
@@ -51,18 +53,25 @@ public class Napakalaki {
         }
             
     }
-    private boolean nextTurnAllowed(){
-        
+    private boolean nextTurnIsAllowed(){
+        return currentPlayer.validState();
     }
     private void setEnemies(){
         //Random para asignar enemigos de manera aleatoria
         Random r = new Random();
-        
-        int counter = 0;
-        while(counter != players.size()){
+
+        int index;
+
+        for (int i = 0; i < players.size();) {
+            index = r.nextInt(players.size());
+            if(i != index){
+                players.get(i).setEnemy(players.get(index));
+                i++;
+            }
             
         }
     }
+    
     public static Napakalaki getInstance(){
         if(instance == null)
             instance = new Napakalaki();
