@@ -5,6 +5,7 @@
  */
 package napakalaki;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -17,23 +18,55 @@ public class Napakalaki {
     private Player currentPlayer;
     private ArrayList<Player> players;
     
-    private Napakalaki(){
-        
-    }
+    private Napakalaki(){ }
+    
     private void initPlayers(ArrayList<String> names){
         
+        //Creamos array de jugadores
+        players = new ArrayList();
+        
+        //Vamos añadiendo jugadores con un determinado nombre
+        Player p;
+        for (String name : names) {
+            p = new Player(name);
+            players.add(p);
+        }
     }
     private Player nextPlayer(){
-        
+        if(players.get(0) == currentPlayer){
+            Random r = new Random();
+            return players.get(r.nextInt(players.size()));
+        }
+        else{
+            boolean found = false;
+            int index = 0;
+            
+            //Indice que devuelve la posicion en el array de la primera ocurrencia
+            index = players.indexOf(currentPlayer);
+     
+            if(index == (players.size()-1))
+                return players.get(0);
+            else
+                return players.get(index+1);
+        }
+            
     }
     private boolean nextTurnAllowed(){
         
     }
     private void setEnemies(){
+        //Random para asignar enemigos de manera aleatoria
+        Random r = new Random();
         
+        int counter = 0;
+        while(counter != players.size()){
+            
+        }
     }
     public static Napakalaki getInstance(){
-        
+        if(instance == null)
+            instance = new Napakalaki();
+    return instance;
     }
     public CombatResult developCombat(){
         
@@ -51,16 +84,16 @@ public class Napakalaki {
         
     }
     public Player getCurrentPlayer(){
-        
+        return currentPlayer;
     }
     public Monster getCurrentMonster(){
-        
+        return currentMonster;
     }
     public boolean nextTurn(){
         
     }
     public boolean endOfGame(CombatResult result){
-        
+        return result == CombatResult.WINGNAME;
     }
     
 }
