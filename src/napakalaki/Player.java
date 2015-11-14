@@ -36,11 +36,6 @@ public class Player {
         return name;
     }
     
-    //EXAM
-    
-    public Dice getDice(){
-        return dice;
-    }
     private void bringToLife(){
         dead = false;
     }
@@ -74,20 +69,12 @@ public class Player {
     }
     private boolean canMakeTreasureVisible(Treasure t){
         if(t.getType() == TreasureKind.ONEHAND){
-            if(howManyVisibleTreasures(t.getType()) != 2 && howManyVisibleTreasures(TreasureKind.BOTHHANDS) == 0)
-                return true;
-            return false;
+            return howManyVisibleTreasures(t.getType()) != 2 && howManyVisibleTreasures(TreasureKind.BOTHHANDS) == 0;
         }
         if(t.getType() == TreasureKind.BOTHHANDS){
-            if(howManyVisibleTreasures(TreasureKind.ONEHAND) == 0 && howManyVisibleTreasures(TreasureKind.BOTHHANDS) == 0)
-                return true;
-            return false;
+            return howManyVisibleTreasures(TreasureKind.ONEHAND) == 0 && howManyVisibleTreasures(TreasureKind.BOTHHANDS) == 0;
             }
-        //Si se llega hasta aquí, es porque t no es de tipo ONEHAND ni BOTHHANDS,
-        //luego la condición ahora sería sólo que el tesoro ya no este presente
-        if(howManyVisibleTreasures(t.getType()) == 0)
-            return true;
-        return false;
+        return howManyVisibleTreasures(t.getType()) == 0;
     }
     
     
@@ -135,9 +122,11 @@ public class Player {
     public int getLevels(){
         return level;
     }
+    
     public Treasure stealTreasure(){
         
     }
+    
     public void setEnemy(Player enemy){
         this.enemy = enemy;
     }
