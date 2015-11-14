@@ -15,7 +15,7 @@ import java.util.Random;
 public class CardDealer {
     
     //Atributos
-    private static final CardDealer instance = new CardDealer();
+    private static  CardDealer instance = null;
     private ArrayList<Monster> unusedMonsters;
     private ArrayList<Monster> usedMonsters;
     private ArrayList<Treasure> unusedTreasures;
@@ -31,7 +31,9 @@ public class CardDealer {
     }
     
     public static CardDealer getInstance(){
-        return instance;
+        if(instance == null)
+            instance = new CardDealer();
+       return instance;
     }
     
     //Metodos
@@ -265,19 +267,54 @@ public class CardDealer {
     	}
     }
     
-    
-    public static CardDealer getInstance(){
-        if(instance == null)
-            instance = new CardDealer();
-       return instance;
-    }
-    
     public Treasure nextTreasure(){
-        
+     if(unusedTreasures.isEmpty()){
+         for(Treasure treasures : usedTreasures){
+             //Pasamos el mazo de descartes al mazo de tesoros
+             unusedTreasures.add(treasures);
+         }
+         //Barajamos
+         shuffleTreasures();
+         
+         //Limpiamos el mazo de descartes
+         usedTreasures.clear();
+     }
+     
+     //Obtenemos la primera carta del mazo
+     Treasure t = unusedTreasures.get(0);
+     
+     //Los agregamos al mazo de descartes
+     usedTreasures.add(t);
+     
+     //Lo eliminamos del mazo de tesoros
+     unusedTreasures.remove(t);
+     
+     return t;
     }
     
     public Monster nextMonster(){
-        
+       if(unusedMonsters.isEmpty()){
+         for(Monster monsters : usedMonsters){
+             //Pasamos el mazo de descartes al mazo de monstruos
+             unusedMonsters.add(monsters);
+         }
+         //Barajamos
+         shuffleMonsters();
+         
+         //Limpiamos el mazo de descartes
+         usedMonsters.clear();
+     }
+     
+     //Obtenemos la primera carta del mazo
+     Monster m = unusedMonsters.get(0);
+     
+     //Los agregamos al mazo de descartes
+     usedMonsters.add(m);
+     
+     //Lo eliminamos del mazo de tesoros
+     unusedMonsters.remove(m);
+     
+     return m;
     }
     
     public void giveTreasureBack(Treasure t){
