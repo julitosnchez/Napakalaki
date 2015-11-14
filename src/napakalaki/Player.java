@@ -37,6 +37,12 @@ public class Player {
     public String getName(){
         return name;
     }
+    
+    //EXAM
+    
+    public Dice getDice(){
+        return dice;
+    }
     private void bringToLife(){
         dead = false;
     }
