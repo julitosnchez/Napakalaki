@@ -15,25 +15,23 @@ public class Player {
     static final int MAXLEVEL = 10;
     private String name;
     private int level;
-    private boolean dead = true;
-    private boolean canISteal = true;
-    //EXAM-INICIO
-    //private Player enemy;
-    private Dice dice;
+    private boolean dead;
+    private boolean canISteal;
+    private Player enemy;
     private BadConsequence pendingBadConsequence;
     private ArrayList<Treasure> visibleTreasures;
     private ArrayList<Treasure> hiddenTreasures;
     
     
     public Player(String name){
-        
+        this.name = name;
+        level = 1;
+        dead = true;
+        canISteal = true;
+        visibleTreasures = new ArrayList();
+        hiddenTreasures = new ArrayList();
     }
     
-    public int rollDice(){
-        Random r = new Random();
-        int n = r.nextInt(5)+1;
-        return n;
-    }
     public String getName(){
         return name;
     }
@@ -75,8 +73,24 @@ public class Player {
         
     }
     private boolean canMakeTreasureVisible(Treasure t){
-        
+        if(t.getType() == TreasureKind.ONEHAND){
+            if(howManyVisibleTreasures(t.getType()) != 2 && howManyVisibleTreasures(TreasureKind.BOTHHANDS) == 0)
+                return true;
+            return false;
+        }
+        if(t.getType() == TreasureKind.BOTHHANDS){
+            if(howManyVisibleTreasures(TreasureKind.ONEHAND) == 0 && howManyVisibleTreasures(TreasureKind.BOTHHANDS) == 0)
+                return true;
+            return false;
+            }
+        //Si se llega hasta aquí, es porque t no es de tipo ONEHAND ni BOTHHANDS,
+        //luego la condición ahora sería sólo que el tesoro ya no este presente
+        if(howManyVisibleTreasures(t.getType()) == 0)
+            return true;
+        return false;
     }
+    
+    
     private int howManyVisibleTreasures(TreasureKind tKind){
         int contador = 0;
         for (int i = 0; i < visibleTreasures.size(); i++)
@@ -124,10 +138,17 @@ public class Player {
     public Treasure stealTreasure(){
         
     }
-  
-    private Treasure giveMeATreasure(){
-        
+    public void setEnemy(Player enemy){
+        this.enemy = enemy;
     }
+    
+    //Devuelve un tesoro elegido al azar de entre los tesoros ocultos del jugador
+    private Treasure giveMeATreasure(){
+        Random r = new Random();
+        
+        return hiddenTreasures.get(r.nextInt(hiddenTreasures.size()));
+    }
+    
     public boolean canISteal(){
         return canISteal;
     }

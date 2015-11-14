@@ -24,7 +24,8 @@ public class PruebaNapakalaki {
        
        
        //Comenzamos a añadir monstruos
-       
+      
+      
        //EL REY ROSA
        bc =  new BadConsequence("Pierdes 5 niveles y 3 tesoros visibles",5, 3, 0);
        prize = new Prize(4,2);
@@ -41,13 +42,6 @@ public class PruebaNapakalaki {
        bc = new BadConsequence("Pierdes tu armadura visible y otra oculta",0,new ArrayList(Arrays.asList(TreasureKind.ARMOR)),new ArrayList(Arrays.asList(TreasureKind.ARMOR)));
        prize = new Prize(2,1);
        monstruos.add(new Monster("3 Byakhees de bonanza",8,bc,prize));
-       
-       //------------------------------------FOR ITERADOR---------------------------------------------------------------
-       //for (Monster monstruo : monstruos ){
-         //  System.out.println(monstruo.toString()+"\n");
-       //}
-       
-       //--------------------------------------------------------------------------------------------------------------
        
        //CHIBITHULHU
        bc = new BadConsequence("Embobados con el lindo priminegio te descartas de tu casco visible",0,new ArrayList(Arrays.asList(TreasureKind.HELMET)),new ArrayList());
@@ -147,16 +141,17 @@ public class PruebaNapakalaki {
         }
        //Monstramos los monstruos cuyo mal rollo indique una ganancia de niveles superior a 1
        for (int i = 0; i < monstruos.size(); i++){
-           if(monstruos.get(i).getLevelsGained() > 1)
+           if(monstruos.get(i).getPrize().getLevel() > 1)
                System.out.println(monstruos.get(i) + "\n");
                 
         }
-        //Monstramos monstruos cuyo mal rollo suponga la pérdida de un determinado tipo de tesoros ya sea visibles y/o ocultos
-        for (Monster monstruo : monstruos) {
-            if (!monstruo.getBC().getSpecificHiddenTreasures().isEmpty() || !monstruo.getBC().getSpecificVisibleTreasures().isEmpty()) {
-                System.out.println(monstruo + "\n");
-            }
+       //Monstramos monstruos cuyo mal rollo suponga la pérdida de un determinado tipo de tesoros ya sea visibles y/o ocultos
+        for (int i = 0; i < monstruos.size(); i++){
+           if(!monstruos.get(i).getBC().getSpecificHiddenTreasures().isEmpty() || !monstruos.get(i).getBC().getSpecificVisibleTreasures().isEmpty())
+               System.out.println(monstruos.get(i) + "\n");
         }
-       
+      
+   
     }
+    
 }
