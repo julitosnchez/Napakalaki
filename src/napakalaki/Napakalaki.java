@@ -40,7 +40,6 @@ public class Napakalaki {
             return players.get(r.nextInt(players.size()));
         }
         else{
-            boolean found = false;
             int index = 0;
             
             //Indice que devuelve la posicion en el array de la primera ocurrencia
