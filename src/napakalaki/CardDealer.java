@@ -327,7 +327,8 @@ public class CardDealer {
     }
     
     public void initCards(){
-        
+        this.initMonsterCardDeck();
+        this.initTreasureCardDeck();
     }
     
 }

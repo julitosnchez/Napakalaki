@@ -73,17 +73,24 @@ public class BadConsequence {
     
     //¿REDUCIR EL NÚMERO DE TESOROS VISIBLES PENDIENTES? ¿A QUÉ SE REFIERE?
     public void substractVisibleTreasure(Treasure t){
-        if(specificVisibleTreasures.contains(t.getType()))
-            specificVisibleTreasures.remove(t.getType());
+        if(nVisibleTreasures > 0)
+            nVisibleTreasures--;
+        else{
+            if(specificVisibleTreasures.contains(t.getType()))
+                specificVisibleTreasures.remove(t.getType());
+        }
     }
     
     //MISMA DUDA QUE ARRIBA
     public void substractHiddenTreasure(Treasure t){
-        if(specificHiddenTreasures.contains(t.getType()))
-            specificHiddenTreasures.remove(t.getType());
+        if(nHiddenTreasures > 0)
+            nHiddenTreasures--;
+        else{
+            if(specificHiddenTreasures.contains(t.getType()))
+                specificHiddenTreasures.remove(t.getType());
+        }
     }
-    
-    public BadConsequence adjustToFitTreasureLists(Treasure v,ArrayList<Treasure> h){}
+    public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v,ArrayList<Treasure> h){}
     
     
     public boolean getDeath(){

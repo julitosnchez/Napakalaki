@@ -76,20 +76,59 @@ public class Napakalaki {
             instance = new Napakalaki();
     return instance;
     }
+    
+    //El jugador actual entra en combate con el monstruo que le ha tocado
+    
     public CombatResult developCombat(){
+        CombatResult result;
+        result = currentPlayer.combat(currentMonster);
+        dealer.giveMonsterBack(currentMonster);
         
+        return result;
     }
+    
+    /*Operación encargada de eliminar los tesoros visibles indicados de la lista de tesoros   visibles del jugador. Al eliminar esos tesoros, si el jugador tiene un mal rollo pendiente, se
+    indica a éste dicho descarte para su posible actualización. Finalmente, se invoca a
+    dieIfNoTreasure() para comprobar si se ha quedado sin tesoros y en ese caso pasar a
+    estado de muerto. Los tesoros descartados se devuelven al CardDealer*/
     public void discardVisibleTreasures(ArrayList<Treasure> treasures){
-        
+        Treasure treasure;
+        for (int i = 0; i < treasures.size(); i++) {
+            treasure = treasures.get(i);
+            currentPlayer.discardVisibleTreasure(treasure);
+            dealer.giveTreasureBack(treasure);
+        }
     }
+    //SIMILAR AL ANTERIOR
     public void discardHiddenTreasures(ArrayList<Treasure> treasures){
-        
+        Treasure treasure;
+        for (int i = 0; i < treasures.size(); i++) {
+            treasure = treasures.get(i);
+            currentPlayer.discardHiddenTreasure(treasure);
+            dealer.giveTreasureBack(treasure);
+        }
     }
+    /*Operación en la que se pide al jugador actual que pase tesoros ocultos a visibles, siempre
+que pueda hacerlo según las reglas del juego*/
+    
     public void makeTreasuresVisible(ArrayList<Treasure> treasures){
-        
+        Treasure t;
+        for (int i = 0; i < treasures.size(); i++) {
+            t = treasures.get(i);
+            currentPlayer.makeTreasureVisible(t);
+            
+        }
     }
+    
+    /*Se encarga de solicitar a CardDealer la inicialización de los mazos de cartas de Tesoros
+     y de Monstruos, de inicializar los jugadores proporcionándoles un nombre, asignarle a cada
+     jugador su enemigo y de iniciar el juego con la llamada a nextTurn() para pasar al
+     siguiente turno (que en este caso será el primero)*/
+    
     public void initGame(ArrayList<String> players){
-        
+        this.initPlayers(players);
+        this.setEnemies();
+        dealer.initCards();
     }
     public Player getCurrentPlayer(){
         return currentPlayer;
@@ -97,8 +136,24 @@ public class Napakalaki {
     public Monster getCurrentMonster(){
         return currentMonster;
     }
+    
+    //Verifica si el jugador activo cumple con las reglas del juego para terminar su turno
+    
     public boolean nextTurn(){
+        boolean stateOK;
+        boolean dead;
         
+        stateOK = this.nextTurnIsAllowed();
+        
+        if(stateOK){
+            currentMonster = dealer.nextMonster();
+            currentPlayer = this.nextPlayer();
+            dead = currentPlayer.isDead();
+            if(dead)
+                currentPlayer.initTreasures();
+        }
+        
+        return stateOK;
     }
     public boolean endOfGame(CombatResult result){
         return result == CombatResult.WINGNAME;
