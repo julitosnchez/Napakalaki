@@ -181,7 +181,27 @@ public class Player {
       proporcionarle nuevos tesoros para que pueda seguir jugando*/
     
     public void initTreasures(){
+        CardDealer dealer;
+        Dice dice;
+        Treasure treasure;
+        int number;
         
+        dealer = CardDealer.getInstance();
+        dice = Dice.getInstance();
+        this.bringToLife();
+        treasure = dealer.nextTreasure();
+        hiddenTreasures.add(treasure);
+        number = dice.nextNumber();
+        
+        if(number > 1){
+            treasure = dealer.nextTreasure();
+            hiddenTreasures.add(treasure);
+        }
+        
+        if(number == 6){
+            treasure = dealer.nextTreasure();
+            hiddenTreasures.add(treasure);
+        }
     }
     
     public int getLevels(){
