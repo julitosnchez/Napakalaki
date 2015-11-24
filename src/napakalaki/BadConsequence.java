@@ -71,7 +71,6 @@ public class BadConsequence {
         return false;
     }
     
-    //¿REDUCIR EL NÚMERO DE TESOROS VISIBLES PENDIENTES? ¿A QUÉ SE REFIERE?
     public void substractVisibleTreasure(Treasure t){
         if(nVisibleTreasures > 0)
             nVisibleTreasures--;
@@ -81,7 +80,6 @@ public class BadConsequence {
         }
     }
     
-    //MISMA DUDA QUE ARRIBA
     public void substractHiddenTreasure(Treasure t){
         if(nHiddenTreasures > 0)
             nHiddenTreasures--;
