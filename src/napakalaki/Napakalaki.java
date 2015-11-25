@@ -31,6 +31,7 @@ public class Napakalaki {
             p = new Player(name);
             players.add(p);
         }
+        nextPlayer();
     }
     
     //Decide qué jugador es el siguiente en jugar.
@@ -46,10 +47,14 @@ public class Napakalaki {
             //Indice que devuelve la posicion en el array de la primera ocurrencia
             index = players.indexOf(currentPlayer);
      
-            if(index == (players.size()-1))
+            if(index == (players.size()-1)){
+                currentPlayer = players.get(0);
                 return players.get(0);
-            else
-                return players.get(index+1);
+            }
+            else{
+                currentPlayer = players.get(index+1);
+                return currentPlayer;
+            }
         }
             
     }

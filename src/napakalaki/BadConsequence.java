@@ -109,7 +109,7 @@ public class BadConsequence {
                     nvisible = tkv.size();
             }
             if(this.nHiddenTreasures > 0){
-                if(this.nHiddenTreasures > tkv.size())
+                if(this.nHiddenTreasures > tkh.size())
                     nhidden = this.nHiddenTreasures;
                 else
                      nhidden = tkh.size();
