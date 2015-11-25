@@ -140,7 +140,7 @@ public class GameTester {
     capture = in.nextLine();
     try {
       option = Integer.valueOf(capture);
-        System.out.println(howMany);
+        System.out.println("ESTE ES EL PROBLEMA "+howMany);
       if (option < Command.GoBack.menu || option > howMany) { // no se ha escrito un entero en el rango permitido
         validInput = false;
       }
