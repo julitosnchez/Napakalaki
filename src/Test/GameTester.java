@@ -239,7 +239,7 @@ public class GameTester {
         break;
       case ShowMonster : 
         System.out.println ("\n------- ------- ------- ------- ------- ------- ------- ");
-        System.out.println ("El monstruo actual es:\n\n" + game.getCurrentMonster().toString());
+        System.out.println ("El monstruo actual es:\n\n" + game.getCurrentPlayer().toString());
         break;
       case ShowVisibleTreasure :
         showTreasures ("Esta es tu lista de tesoros visibles", aPlayer.getVisibleTreasures(), false);
