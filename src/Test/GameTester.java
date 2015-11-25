@@ -228,6 +228,7 @@ public class GameTester {
   private Command processCommand (Command command, Player aPlayer) {
     Treasure aTreasure;
     
+    
     switch (command) {
       case Exit :
         break;

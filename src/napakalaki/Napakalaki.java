@@ -14,7 +14,7 @@ import java.util.Random;
 public class Napakalaki {
     private static Napakalaki instance = null;
     private CardDealer dealer = CardDealer.getInstance();
-    private Monster currentMonster = dealer.nextMonster();
+    private Monster currentMonster;
     private Player currentPlayer;
     private ArrayList<Player> players;
     
@@ -140,6 +140,7 @@ que pueda hacerlo según las reglas del juego*/
         return currentPlayer;
     }
     public Monster getCurrentMonster(){
+        currentMonster = dealer.nextMonster();
         return currentMonster;
     }
     
