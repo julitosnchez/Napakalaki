@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 package napakalaki;
-import java.util.*;
 
 /**
  *
- * @author julitosnchez
+ * @author JULIO
  */
+import Test.GameTester;
+
 public class EjemploMain {
 
     public static void main(String[] args) {
@@ -21,3 +22,4 @@ public class EjemploMain {
               
     }
 }
+
