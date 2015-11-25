@@ -7,7 +7,7 @@ package napakalaki;
 
 /**
  *
- * @author JULIO
+ * @author julitosnchez
  */
 import Test.GameTester;
 

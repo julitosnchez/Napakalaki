@@ -14,7 +14,7 @@ import java.util.Random;
 public class Napakalaki {
     private static Napakalaki instance = null;
     private Monster currentMonster;
-    private CardDealer dealer;
+    private CardDealer dealer = CardDealer.getInstance();
     private Player currentPlayer;
     private ArrayList<Player> players;
     
