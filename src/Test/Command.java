@@ -7,12 +7,12 @@ package Test;
 
 /**
  *
- * @author JULIO
+ * @author julitosnchez
  */
 public enum Command {
   Exit (0, "Salir del juego"),
   GoBack (-1, "Menu anterior"), 
-  Combat (69, "Â¡Â¡ C O M B A T I R !!"),
+  Combat (69, "¡¡ C O M B A T I R !!"),
   ShowMonster         (10, "Mostrar monstruo"), 
   ShowVisibleTreasure (11, "Mostrar tesoros visibles"), 
   ShowHiddenTreasure  (12, "Mostrar tesoros ocultos"), 

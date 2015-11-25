@@ -14,13 +14,9 @@ import napakalaki.Player;
 import napakalaki.Treasure;
 import java.util.Arrays;
 
-/**
- *
- * @author JULIO
- */
 public class GameTester {
-    
-    private static final GameTester test = new GameTester ();
+  
+  private static final GameTester test = new GameTester ();
   private Napakalaki game;
   private final Scanner in = new Scanner (System.in);  
   
@@ -59,7 +55,7 @@ public class GameTester {
           switch (combatResult) {
             case WINGNAME: 
               System.out.println ("\n\n       " + currentPlayer.getName());
-              System.out.println ("\n\n Â¡Â¡Â¡ H A S   G A N A D O   L A   P A R T I D A !!!");
+              System.out.println ("\n\n ¡¡¡ H A S   G A N A D O   L A   P A R T I D A !!!");
               break;
             case WIN :
               System.out.println ("\n\n Ganaste el combate");
@@ -158,14 +154,14 @@ public class GameTester {
   }
   
   private void inputErrorMessage () {
-    System.out.println ("\n\n Â¡Â¡Â¡ E R R O R !!! \n\n SelecciÃ³n errÃ³nea. IntÃ©ntalo de nuevo.\n\n");    
+    System.out.println ("\n\n ¡¡¡ E R R O R !!! \n\n Selección errónea. Inténtalo de nuevo.\n\n");    
   }
   
   private void manageDiscardTreasures (boolean visible, Player aPlayer) {
     int howMany;
     int option;
     
-    do { // Se descartan tesoros hasta que se vuelve al menÃº anterior
+    do { // Se descartan tesoros hasta que se vuelve al menú anterior
       if (visible) {
         howMany = showTreasures ("Elige tesoros visibles para descartar", aPlayer.getVisibleTreasures(), true);
       } else {
@@ -186,7 +182,7 @@ public class GameTester {
     int howMany;
     int option;
     
-    do { // Se hacen tesoros visibles hasta que se vuelve al menÃº anterior
+    do { // Se hacen tesoros visibles hasta que se vuelve al menú anterior
       howMany = showTreasures ("Elige tesoros para intentar hacerlos visibles", aPlayer.getHiddenTreasures(), true);
       option = getTreasure (howMany);
       if (option > Command.GoBack.menu) {
@@ -196,7 +192,7 @@ public class GameTester {
   }
   
   private Command manageMenu (String message, Command[] menu) {
-    HashMap <Integer, Command> menuCheck = new HashMap(); // Para comprobar que se hace una selecciÃ³n vÃ¡lida
+    HashMap <Integer, Command> menuCheck = new HashMap(); // Para comprobar que se hace una selección válida
     boolean validInput;
     String capture;
     int option;
@@ -204,19 +200,19 @@ public class GameTester {
     for (Command c : menu) {
       menuCheck.put (c.menu, c);
     }
-    do { // Hasta que se hace una selecciÃ³n vÃ¡lida
+    do { // Hasta que se hace una selección válida
       validInput = true;
       option = Command.GoBack.menu;
       System.out.println ("\n\n------- ------ ------ ------ ------ ------ ------");
       System.out.println ("**** " + message + " ****\n");
-      for (Command c : menu) { // se muestran las opciones del menÃº
+      for (Command c : menu) { // se muestran las opciones del menú
         System.out.println (String.format ("%2d",c.menu) + " : " + c.text);
       } 
-      System.out.print ("\n Elige una opciÃ³n: ");
+      System.out.print ("\n Elige una opción: ");
       capture = in.nextLine();
       try {
         option = Integer.valueOf(capture);
-        if (! menuCheck.containsKey(option)) { // No es un entero entre los vÃ¡lidos
+        if (! menuCheck.containsKey(option)) { // No es un entero entre los válidos
           validInput = false;
         }
       } catch (NumberFormatException e) { // No se ha introducido un entero
@@ -239,7 +235,7 @@ public class GameTester {
         break;
       case ShowMonster : 
         System.out.println ("\n------- ------- ------- ------- ------- ------- ------- ");
-        System.out.println ("El monstruo actual es:\n\n" + game.getCurrentPlayer().toString());
+        System.out.println ("El monstruo actual es:\n\n" + game.getCurrentMonster().toString());
         break;
       case ShowVisibleTreasure :
         showTreasures ("Esta es tu lista de tesoros visibles", aPlayer.getVisibleTreasures(), false);
@@ -270,7 +266,7 @@ public class GameTester {
         if (! game.nextTurn ()) {
           System.out.println ("\n\n ERROR \n");
           System.out.println ("No cumples las condiciones para pasar de turno.");
-          System.out.println ("O bien tienes mÃ¡s de 4 tesoros ocultos");
+          System.out.println ("O bien tienes más de 4 tesoros ocultos");
           System.out.println ("O bien te queda mal rollo por cumplir");
         } else {
           command = Command.NextTurnAllowed;
@@ -295,5 +291,3 @@ public class GameTester {
     return optionMenu;
   }
 }
-
-

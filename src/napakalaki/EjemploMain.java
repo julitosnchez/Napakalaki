@@ -5,10 +5,6 @@
  */
 package napakalaki;
 
-/**
- *
- * @author julitosnchez
- */
 import Test.GameTester;
 
 public class EjemploMain {
