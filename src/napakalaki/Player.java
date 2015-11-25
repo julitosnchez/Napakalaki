@@ -264,4 +264,10 @@ public class Player {
             this.discardHiddenTreasure(treasure);
         }
     }
+
+    @Override
+    public String toString(){
+        return name;
+    }
+    
 }
