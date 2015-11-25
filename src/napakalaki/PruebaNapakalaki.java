@@ -141,7 +141,7 @@ public class PruebaNapakalaki {
         }
        //Monstramos los monstruos cuyo mal rollo indique una ganancia de niveles superior a 1
        for (int i = 0; i < monstruos.size(); i++){
-           if(monstruos.get(i).getPrize().getLevel() > 1)
+           if(monstruos.get(i).getLevelsGained() > 1)
                System.out.println(monstruos.get(i) + "\n");
                 
         }
