@@ -35,9 +35,10 @@ public class Napakalaki {
     
     //Decide qué jugador es el siguiente en jugar.
     private Player nextPlayer(){
-        if(players.get(0) == currentPlayer){
+        if(currentPlayer == null){
             Random r = new Random();
-            return players.get(r.nextInt(players.size()));
+            currentPlayer = players.get(r.nextInt(players.size()));
+            return currentPlayer;
         }
         else{
             int index = 0;

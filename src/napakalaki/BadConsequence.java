@@ -88,7 +88,59 @@ public class BadConsequence {
                 specificHiddenTreasures.remove(t.getType());
         }
     }
-    public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v,ArrayList<Treasure> h){}
+    public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v,ArrayList<Treasure> h)
+    {
+        BadConsequence bc;
+        ArrayList<TreasureKind> tkv = new ArrayList();
+        ArrayList<TreasureKind> tkh = new ArrayList();
+        
+        for (int i = 0; i < v.size(); i++)
+            tkv.add(v.get(i).getType());
+        for (int i = 0; i < h.size(); i++)
+            tkh.add(v.get(i).getType());
+        
+        if(this.nHiddenTreasures != 0 || this.nVisibleTreasures != 0){
+            int nvisible = 0;
+            int nhidden = 0;
+            if(this.nVisibleTreasures > 0){
+                if(this.nVisibleTreasures > tkv.size())
+                    nvisible = this.nVisibleTreasures;
+                else
+                    nvisible = tkv.size();
+            }
+            if(this.nHiddenTreasures > 0){
+                if(this.nHiddenTreasures > tkv.size())
+                    nhidden = this.nHiddenTreasures;
+                else
+                     nhidden = tkh.size();
+            }
+            bc = new BadConsequence(this.text,this.levels,nvisible,nhidden);
+        }
+        else{
+            ArrayList<TreasureKind> visibleTreasures = new ArrayList();
+            ArrayList<TreasureKind> hiddenTreasures = new ArrayList();
+            
+            if(!this.specificVisibleTreasures.isEmpty()){
+                for (TreasureKind specificVisibleTreasure : specificVisibleTreasures) {
+                    if (v.contains(specificVisibleTreasure)) {
+                        visibleTreasures.add(specificVisibleTreasure);
+                    }
+                }
+                    
+            }
+            if(!this.specificHiddenTreasures.isEmpty()){
+                for (TreasureKind specificHiddenTreasure : specificHiddenTreasures) {
+                    if (h.contains(specificHiddenTreasure)) {
+                        hiddenTreasures.add(specificHiddenTreasure);
+                    }
+                }
+                    
+            }
+            bc = new BadConsequence(this.text,this.levels,visibleTreasures,hiddenTreasures);
+        }
+        
+        return bc;
+        }
     
     
     public boolean getDeath(){
