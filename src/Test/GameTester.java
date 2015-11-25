@@ -57,7 +57,7 @@ public class GameTester {
         if (command == Command.Combat) {
           combatResult = game.developCombat();
           switch (combatResult) {
-            case WINGAME : 
+            case WINGNAME: 
               System.out.println ("\n\n       " + currentPlayer.getName());
               System.out.println ("\n\n Â¡Â¡Â¡ H A S   G A N A D O   L A   P A R T I D A !!!");
               break;
@@ -68,7 +68,7 @@ public class GameTester {
               System.out.println ("\n\n Has perdido el combate, te toca cumplir el mal rollo");
               break;
           }
-          if (combatResult != CombatResult.WINGAME) {
+          if (combatResult != CombatResult.WINGNAME) {
             do { // Hasta que se avance de turno 
               System.out.println ("******* ******* ******* ******* ******* ******* *******");
               System.out.println ("\n\n Turno de: " + currentPlayer.toString());
