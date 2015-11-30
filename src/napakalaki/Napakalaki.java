@@ -59,8 +59,12 @@ public class Napakalaki {
             
     }
     private boolean nextTurnIsAllowed(){
-        return currentPlayer.validState();
+        if(this.currentPlayer == null)
+            return true;
+        else
+            return this.currentPlayer.validState();
     }
+    
     private void setEnemies(){
         //Random para asignar enemigos de manera aleatoria
         Random r = new Random();
