@@ -162,18 +162,24 @@ public class Player {
     }
     public void discardVisibleTreasure(Treasure t){
         visibleTreasures.remove(t);
-        if(pendingBadConsequence!= null && !pendingBadConsequence.isEmpty())
-            pendingBadConsequence.substractVisibleTreasure(t);
+        if(pendingBadConsequence!= null)
+            if(!pendingBadConsequence.isEmpty())
+                pendingBadConsequence.substractVisibleTreasure(t);
         this.dielfNoTreasures();
     }
+    
+    
     public void discardHiddenTreasure(Treasure t){
         hiddenTreasures.remove(t);
-        if(pendingBadConsequence!= null && !pendingBadConsequence.isEmpty())
-            pendingBadConsequence.substractHiddenTreasure(t);
+        if(pendingBadConsequence!= null)
+             if(!pendingBadConsequence.isEmpty())
+                pendingBadConsequence.substractHiddenTreasure(t);
         this.dielfNoTreasures();
     }
+    
+    
     public boolean validState(){
-        if(pendingBadConsequence == null && hiddenTreasures.size() <= 4)
+        if(pendingBadConsequence == null || (pendingBadConsequence.isEmpty() &&  hiddenTreasures.size() <= 4))
           return true;
     return false;
     }

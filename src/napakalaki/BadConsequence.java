@@ -95,7 +95,7 @@ public class BadConsequence {
         for (int i = 0; i < v.size(); i++)
             tkv.add(v.get(i).getType());
         for (int i = 0; i < h.size(); i++)
-            tkh.add(v.get(i).getType());
+            tkh.add(h.get(i).getType());
         
         if(this.nHiddenTreasures != 0 || this.nVisibleTreasures != 0){
             int nvisible = 0;
