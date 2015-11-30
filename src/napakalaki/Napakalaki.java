@@ -15,7 +15,7 @@ public class Napakalaki {
     private static Napakalaki instance = null;
     private CardDealer dealer = CardDealer.getInstance();
     private Monster currentMonster;
-    private Player currentPlayer;
+    private Player currentPlayer = null;
     private ArrayList<Player> players;
     
     private Napakalaki(){ }
@@ -59,8 +59,9 @@ public class Napakalaki {
             
     }
     private boolean nextTurnIsAllowed(){
-        if(this.currentPlayer == null)
+        if(this.currentPlayer == null){
             return true;
+        }
         else
             return this.currentPlayer.validState();
     }
@@ -141,6 +142,8 @@ que pueda hacerlo según las reglas del juego*/
         this.setEnemies();
         
         dealer.initCards();
+        
+        System.out.println(currentPlayer.toString());
         
         this.nextTurn();
     }

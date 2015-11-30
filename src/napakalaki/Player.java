@@ -173,7 +173,7 @@ public class Player {
         this.dielfNoTreasures();
     }
     public boolean validState(){
-        if(pendingBadConsequence.isEmpty() && hiddenTreasures.size() <= 4)
+        if(pendingBadConsequence == null && hiddenTreasures.size() <= 4)
           return true;
     return false;
     }
