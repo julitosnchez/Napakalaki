@@ -30,6 +30,9 @@ public class BadConsequence {
     }
     //Constructor 2
     public BadConsequence(String text,boolean death){
+        levels = Player.MAXLEVEL;
+        nVisibleTreasures = MAXTREASURES;
+        nHiddenTreasures = MAXTREASURES;
         this.text = text;
         this.death = death;
     }

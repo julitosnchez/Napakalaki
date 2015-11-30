@@ -59,6 +59,8 @@ public class Napakalaki {
             
     }
     private boolean nextTurnIsAllowed(){
+        if(currentPlayer == null)
+            return true;
         return currentPlayer.validState();
     }
     private void setEnemies(){
@@ -137,10 +139,10 @@ que pueda hacerlo según las reglas del juego*/
         dealer.initCards();
     }
     public Player getCurrentPlayer(){
-        if(currentPlayer == null){
-            Random r = new Random();
-            currentPlayer = players.get(r.nextInt(players.size()));
-        }
+ //       if(currentPlayer == null){
+   //         Random r = new Random();
+     //       currentPlayer = players.get(r.nextInt(players.size()));
+       // }
         return currentPlayer;
     }
     public Monster getCurrentMonster(){

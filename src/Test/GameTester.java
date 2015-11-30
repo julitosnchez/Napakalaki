@@ -37,7 +37,6 @@ public class GameTester {
     game.initGame(names);
     do { // Mientras dure la partida
       currentPlayer = game.getCurrentPlayer();
-        System.err.println(currentPlayer.toString());
       do { // Mientras el jugador se decide a conocer al monstruo
         System.out.println ("******* ******* ******* ******* ******* ******* *******");
         System.out.println ("\n\n Turno de: " + currentPlayer.toString());
