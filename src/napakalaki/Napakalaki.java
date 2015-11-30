@@ -133,8 +133,12 @@ que pueda hacerlo según las reglas del juego*/
     
     public void initGame(ArrayList<String> players){
         this.initPlayers(players);
+        
         this.setEnemies();
+        
         dealer.initCards();
+        
+        this.nextTurn();
     }
     public Player getCurrentPlayer(){
         return currentPlayer;

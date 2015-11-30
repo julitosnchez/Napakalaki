@@ -211,6 +211,7 @@ public class GameTester {
       } 
       System.out.print ("\n Elige una opción: ");
       capture = in.nextLine();
+      
       try {
         option = Integer.valueOf(capture);
         if (! menuCheck.containsKey(option)) { // No es un entero entre los válidos
