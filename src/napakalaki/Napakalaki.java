@@ -151,7 +151,6 @@ que pueda hacerlo según las reglas del juego*/
         return currentPlayer;
     }
     public Monster getCurrentMonster(){
-        currentMonster = dealer.nextMonster();
         return currentMonster;
     }
     
