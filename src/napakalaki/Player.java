@@ -242,8 +242,12 @@ public class Player {
     //Devuelve un tesoro elegido al azar de entre los tesoros ocultos del jugador
     private Treasure giveMeATreasure(){
         Random r = new Random();
+        int x = r.nextInt(hiddenTreasures.size());
+        Treasure t = hiddenTreasures.get(x);
+        hiddenTreasures.remove(x);
         
-        return hiddenTreasures.get(r.nextInt(hiddenTreasures.size()));
+        
+        return t;
     }
     
     public boolean canISteal(){
