@@ -251,8 +251,8 @@ public class CardDealer {
 	for (int i = 0; i < unusedTreasures.size(); i++) {
         	x = (int)(rnd.nextDouble()*unusedTreasures.size());
                 aux = new Treasure(unusedTreasures.get(i).getName(),unusedTreasures.get(i).getBonus(),unusedTreasures.get(i).getType());
-                unusedTreasures.add(i, unusedTreasures.get(x));
-                unusedTreasures.add(x, aux);
+                unusedTreasures.set(i, unusedTreasures.get(x));
+                unusedTreasures.set(x, aux);
     	}
     }
     
@@ -266,8 +266,8 @@ public class CardDealer {
         	x = (int)(rnd.nextDouble()*unusedMonsters.size());
                 Prize p = new Prize(unusedMonsters.get(i).getTreasuresGained(),unusedMonsters.get(i).getLevelsGained());
                 aux = new Monster(unusedMonsters.get(i).getName(),unusedMonsters.get(i).getCombatLevel(),unusedMonsters.get(i).getBC(),p);
-                unusedMonsters.add(i, unusedMonsters.get(x));
-                unusedMonsters.add(x, aux);
+                unusedMonsters.set(i, unusedMonsters.get(x));
+                unusedMonsters.set(x, aux);
     	}
     }
     
