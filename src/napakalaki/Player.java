@@ -261,10 +261,13 @@ public class Player {
         ArrayList<Treasure> vt = visibleTreasures;
         ArrayList<Treasure> ht = hiddenTreasures;
         
-        for (int i = 0; i < vt.size(); i++)
-            this.discardVisibleTreasure(vt.get(i));
-        for (int i = 0; i < ht.size(); i++)
-            this.discardHiddenTreasure(ht.get(i));
+        int sizevt = vt.size();
+        int sizeht = ht.size();
+        
+        for (int i = 0; i < sizevt; i++)
+            this.discardVisibleTreasure(vt.get(0));
+        for (int i = 0; i < sizeht; i++)
+            this.discardHiddenTreasure(ht.get(0));
     }
 
     @Override
