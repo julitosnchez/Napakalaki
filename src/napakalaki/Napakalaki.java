@@ -141,15 +141,10 @@ que pueda hacerlo según las reglas del juego*/
         
         dealer.initCards();
         
-        System.out.println(currentPlayer.toString());
         
         this.nextTurn();
     }
     public Player getCurrentPlayer(){
- //       if(currentPlayer == null){
-   //         Random r = new Random();
-     //       currentPlayer = players.get(r.nextInt(players.size()));
-       // }
         return currentPlayer;
     }
     public Monster getCurrentMonster(){
