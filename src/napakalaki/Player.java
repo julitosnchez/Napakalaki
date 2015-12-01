@@ -53,10 +53,14 @@ public class Player {
     private void incrementLevels(int i){
         if(level+i < MAXLEVEL)
             level = level+i;
+        else
+            level = MAXLEVEL;
     }
     private void decrementLevels(int l){
         if(level-l > 1)
             level = level-l;
+        else
+            level = 1;
     }
     private void setPendingBadConsequence(BadConsequence b){
         pendingBadConsequence = b;
