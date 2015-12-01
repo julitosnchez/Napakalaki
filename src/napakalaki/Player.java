@@ -81,7 +81,7 @@ public class Player {
         
         if(nTreasures > 0){
             CardDealer dealer = CardDealer.getInstance();
-            for (int i = 0; i < nTreasures; i++) {
+            for (int i = 0; i < nTreasures && hiddenTreasures.size()<4; i++) {
                 treasure = dealer.nextTreasure();
                 hiddenTreasures.add(treasure);
             }
