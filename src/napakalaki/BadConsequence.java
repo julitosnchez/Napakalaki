@@ -115,7 +115,7 @@ public class BadConsequence {
                 else
                      nhidden = this.nHiddenTreasures;
             }
-            bc = new BadConsequence(this.text,this.levels,nvisible,nhidden);
+            bc = new BadConsequence(this.text,0,nvisible,nhidden);
         }
         else{
             ArrayList<TreasureKind> visibleTreasures = new ArrayList();
@@ -137,7 +137,7 @@ public class BadConsequence {
                 }
                     
             }
-            bc = new BadConsequence(this.text,this.levels,visibleTreasures,hiddenTreasures);
+            bc = new BadConsequence(this.text,0,visibleTreasures,hiddenTreasures);
         }
         
         return bc;
