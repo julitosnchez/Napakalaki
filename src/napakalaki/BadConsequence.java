@@ -105,15 +105,15 @@ public class BadConsequence {
             int nhidden = 0;
             if(this.nVisibleTreasures > 0){
                 if(this.nVisibleTreasures > tkv.size())
-                    nvisible = this.nVisibleTreasures;
-                else
                     nvisible = tkv.size();
+                else
+                    nvisible = this.nVisibleTreasures;
             }
             if(this.nHiddenTreasures > 0){
                 if(this.nHiddenTreasures > tkh.size())
-                    nhidden = this.nHiddenTreasures;
+                    nhidden = tkh.size();
                 else
-                     nhidden = tkh.size();
+                     nhidden = this.nHiddenTreasures;
             }
             bc = new BadConsequence(this.text,this.levels,nvisible,nhidden);
         }
@@ -123,7 +123,7 @@ public class BadConsequence {
             
             if(!this.specificVisibleTreasures.isEmpty()){
                 for (TreasureKind specificVisibleTreasure : specificVisibleTreasures) {
-                    if (v.contains(specificVisibleTreasure)) {
+                    if (tkv.contains(specificVisibleTreasure)) {
                         visibleTreasures.add(specificVisibleTreasure);
                     }
                 }
@@ -131,7 +131,7 @@ public class BadConsequence {
             }
             if(!this.specificHiddenTreasures.isEmpty()){
                 for (TreasureKind specificHiddenTreasure : specificHiddenTreasures) {
-                    if (h.contains(specificHiddenTreasure)) {
+                    if (tkh.contains(specificHiddenTreasure)) {
                         hiddenTreasures.add(specificHiddenTreasure);
                     }
                 }
