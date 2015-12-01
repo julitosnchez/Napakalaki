@@ -258,19 +258,13 @@ public class Player {
     //El jugador se descarta de todos sus tesoros ocultos y visibles.
     
     public void discardAllTreasures(){
-        Treasure treasure;
         ArrayList<Treasure> vt = visibleTreasures;
         ArrayList<Treasure> ht = hiddenTreasures;
         
-        for (Treasure visibleTreasure : vt) {
-            treasure = visibleTreasure;
-            this.discardVisibleTreasure(treasure);
-        }
-        
-        for (Treasure hiddenTreasure : ht) {
-            treasure = hiddenTreasure;
-            this.discardHiddenTreasure(treasure);
-        }
+        for (int i = 0; i < vt.size(); i++)
+            this.discardVisibleTreasure(vt.get(i));
+        for (int i = 0; i < ht.size(); i++)
+            this.discardHiddenTreasure(ht.get(i));
     }
 
     @Override
