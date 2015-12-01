@@ -139,8 +139,9 @@ public class Player {
             this.applyPrize(m);
             if(this.level >= MAXLEVEL)
                 combatResult = CombatResult.WINGNAME;
-            else
+            else{
                  combatResult = CombatResult.WIN;
+            }
         }
         else{
             this.applyBadConsequence(m);
@@ -249,7 +250,7 @@ public class Player {
         return canISteal;
     }
     private boolean canYouGiveMeATreasure(){
-        return hiddenTreasures.isEmpty();
+        return hiddenTreasures.isEmpty() == false;
     }
     private void haveStolen(){
         canISteal = false;
