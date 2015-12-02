@@ -14,12 +14,14 @@ public class Monster {
     private int combatLevel;
     private Prize price;
     private BadConsequence bc;
+    private int levelChangeAgainstCultistPlayer;
     
-    public Monster(String name,int level,BadConsequence bc,Prize price){
+    public Monster(String name,int level,BadConsequence bc,Prize price,int LC){
         this.name = name;
         combatLevel= level;
         this.bc = bc;
         this.price = price;
+        this.levelChangeAgainstCultistPlayer = LC;
     }
     
     public String getName(){
@@ -40,6 +42,10 @@ public class Monster {
     
     public int getTreasuresGained(){
         return price.getTreasures();
+    }
+    
+    public int getCombatLevelAgainstCultistPlayer(){
+        
     }
     
     

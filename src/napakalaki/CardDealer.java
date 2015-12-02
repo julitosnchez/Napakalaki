@@ -20,6 +20,7 @@ public class CardDealer {
     private ArrayList<Monster> usedMonsters;
     private ArrayList<Treasure> unusedTreasures;
     private ArrayList<Treasure> usedTreasures;
+    private ArrayList<Cultist> unusedCultists;
     
     //Constructor
     private CardDealer(){
@@ -27,6 +28,7 @@ public class CardDealer {
         usedMonsters = new ArrayList();
         unusedTreasures = new ArrayList();
         usedTreasures = new ArrayList();
+        unusedCultists = new ArrayList();
         
     }
     
@@ -34,6 +36,18 @@ public class CardDealer {
         if(instance == null)
             instance = new CardDealer();
        return instance;
+    }
+    
+    private void shuffleCultists(){
+        
+    }
+    
+    private void initCultistCardDeck(){
+        
+    }
+    
+    public Cultist nextCultist(){
+        
     }
     
     //Metodos
