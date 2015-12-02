@@ -43,7 +43,26 @@ public class CardDealer {
     }
     
     private void initCultistCardDeck(){
+        Cultist c;
         
+        //Inicializamos las cartas de Sectarios
+        c = new Cultist("Sectario1",1);
+        unusedCultists.add(c);
+        
+        c = new Cultist("Sectario2",1);
+        unusedCultists.add(c);
+        
+        c = new Cultist("Sectario3",1);
+        unusedCultists.add(c);
+        
+        c = new Cultist("Sectario4",1);
+        unusedCultists.add(c);
+        
+        c = new Cultist("Sectario5",1);
+        unusedCultists.add(c);
+        
+        c = new Cultist("Sectario6",1);
+        unusedCultists.add(c);
     }
     
     public Cultist nextCultist(){
