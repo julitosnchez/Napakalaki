@@ -141,7 +141,7 @@ public class Player {
         
         if(myLevel > monsterLevel){
             this.applyPrize(m);
-            if(this.level >= MAXLEVEL)
+            if(this.getCombatLevel() >= MAXLEVEL)
                 combatResult = CombatResult.WINGNAME;
             else{
                  combatResult = CombatResult.WIN;
