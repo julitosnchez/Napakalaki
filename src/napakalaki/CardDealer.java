@@ -38,8 +38,19 @@ public class CardDealer {
        return instance;
     }
     
-    private void shuffleCultists(){
+    
+    public Cultist nextCultist(){
+          if(unusedCultists.isEmpty()){
+                this.initCultistCardDeck();
+                
+                this.shuffleCultists();
+        }
         
+        Cultist m = this.unusedCultists.get(0);
+        
+        this.unusedCultists.remove(m);
+        
+        return m;
     }
     
     private void initCultistCardDeck(){
@@ -64,9 +75,18 @@ public class CardDealer {
         c = new Cultist("Sectario6",1);
         unusedCultists.add(c);
     }
-    
-    public Cultist nextCultist(){
-        
+
+    public void shuffleCultists(){
+        //Generamos posicion aleatoria y hacemos intercambio, así conseguimos barajar
+        Random rnd = new Random();
+        int x;
+        Cultist aux;
+	for (int i = 0; i < unusedCultists.size(); i++) {
+        	x = (int)(rnd.nextDouble()*unusedCultists.size());
+                aux = new Cultist(unusedCultists.get(i).getName(),unusedCultists.get(i).getGainedLevels());
+                unusedCultists.set(i, unusedCultists.get(x));
+                unusedCultists.set(x, aux);
+    	}
     }
     
     //Metodos

@@ -22,4 +22,8 @@ public class Cultist {
         return this.gainedLevels;
     }
     
+    public String getName(){
+        return name;
+    }
+    
 }

@@ -44,7 +44,11 @@ public class Player {
     }
     
     protected int getOponentLevel(Monster m){
-        
+        return m.getCombatLevel();
+    }
+    
+    protected Player Enemy(){
+        return enemy;
     }
     
     protected boolean shouldConvert(){
@@ -156,7 +160,7 @@ public class Player {
     }
     public CombatResult combat(Monster m){
         int myLevel = this.getCombatLevel();
-        int monsterLevel = m.getCombatLevel();
+        int monsterLevel = this.getOponentLevel(m);
         CombatResult combatResult;
         
         if(myLevel > monsterLevel){
@@ -169,7 +173,11 @@ public class Player {
         }
         else{
             this.applyBadConsequence(m);
-            combatResult = CombatResult.LOSE;
+            boolean sc = this.shouldConvert();
+            if(sc)
+                combatResult = CombatResult.LOSEANDCONVERT;
+            else
+                combatResult = CombatResult.LOSE;
         }
         return combatResult;
     }
@@ -264,7 +272,7 @@ public class Player {
     }
     
     //Devuelve un tesoro elegido al azar de entre los tesoros ocultos del jugador
-    private Treasure giveMeATreasure(){
+    protected Treasure giveMeATreasure(){
         Random r = new Random();
         int x = r.nextInt(hiddenTreasures.size());
         Treasure t = hiddenTreasures.get(x);
@@ -277,7 +285,7 @@ public class Player {
     public boolean canISteal(){
         return canISteal;
     }
-    private boolean canYouGiveMeATreasure(){
+    protected boolean canYouGiveMeATreasure(){
         return hiddenTreasures.isEmpty() == false;
     }
     private void haveStolen(){

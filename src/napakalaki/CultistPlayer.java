@@ -5,28 +5,49 @@
  */
 package napakalaki;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 /**
  *
- * @author JULIO
+ * @author julitosnchez
  */
 public class CultistPlayer extends Player {
     private static int totalCultistPlayers = 0;
     private Cultist myCultistCard;
     
     public CultistPlayer(Player p,Cultist c){
-        
+        super(p);
+        myCultistCard = c;
+        totalCultistPlayers++;
     }
 
-    private Treasure giveMeATreasure(){
-        
+
+    @Override
+    protected Treasure giveMeATreasure(){
+        Random r = new Random();
+        ArrayList<Treasure> vt = super.getVisibleTreasures();
+        int index = r.nextInt()*vt.size();
+        return vt.get(index);
     }
     
-    private boolean canYouGiveMeATreasure(){
-        
+    @Override
+    protected boolean canYouGiveMeATreasure(){
+        return !super.enemy.getVisibleTreasures().isEmpty();
     }
     
     public static int getTotatlCultistPlayers(){
-        
+        return totalCultistPlayers;
+    }
+    
+    @Override
+    protected int getOponentLevel(Monster m){
+        return m.getCombatLevelAgainstCultistPlayer();
+    }
+    
+    @Override
+    protected int getCombatLevel(){
+        return (int) (super.getCombatLevel()+0.2*super.getCombatLevel()+myCultistCard.getGainedLevels()*totalCultistPlayers);
     }
     
 }
