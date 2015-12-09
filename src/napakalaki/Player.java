@@ -48,7 +48,8 @@ public class Player {
     }
     
     protected boolean shouldConvert(){
-        
+        Dice dice = Dice.getInstance();
+        return dice.nextNumber() == 1;
     }
     
     public String getName(){
