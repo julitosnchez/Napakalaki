@@ -51,10 +51,6 @@ public class Player {
         
     }
     
-    protected int getCombatLevel(){
-        
-    }
-    
     public String getName(){
         return name;
     }
@@ -62,7 +58,7 @@ public class Player {
     private void bringToLife(){
         dead = false;
     }
-    private int getCombatLevel(){
+    protected int getCombatLevel(){
         int nivelCompleto = 0;
         for (int i = 0; i < visibleTreasures.size(); i++)
             nivelCompleto = nivelCompleto + visibleTreasures.get(i).getBonus();
