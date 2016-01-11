@@ -1,4 +1,4 @@
-        /*
+      /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -10,148 +10,50 @@ import java.util.*;
  *
  * @author julitosnchez
  */
-public class BadConsequence {
+public abstract class BadConsequence {
     static final int MAXTREASURES = 10;
     private String text;
     private int levels;
-    private int nVisibleTreasures;
-    private int nHiddenTreasures;
     private boolean death;
-    //Declaración de dos arrays que coleecionan objetos tipo 'TreasureKind'
-    private ArrayList<TreasureKind>specificHiddenTreasures = new ArrayList();
-    private ArrayList<TreasureKind>specificVisibleTreasures = new ArrayList();
-    
+
     //Constructor 1
-    public BadConsequence(String text,int levels,int nVisible,int nHidden){
+    public BadConsequence(String text,int levels){
         this.text = text;
         this.levels = levels;
-        nVisibleTreasures = nVisible;
-        nHiddenTreasures = nHidden;
-    }
-    //Constructor 2
-    public BadConsequence(String text,boolean death){
-        levels = Player.MAXLEVEL;
-        nVisibleTreasures = MAXTREASURES;
-        nHiddenTreasures = MAXTREASURES;
-        this.text = text;
-        this.death = death;
-    }
-    //Constructor 3
-    public BadConsequence(String text, int levels, ArrayList<TreasureKind> tVisible, ArrayList<TreasureKind> tHidden){
-        this.text = text;
-        this.levels = levels;
-        specificHiddenTreasures = tHidden;
-        specificVisibleTreasures = tVisible;
+        death = false;
     }
     
+    //Obtener la descripcion del monstruo
     public String getText(){
         return text;
     }
     
+    //Obtener niveles perdidos en caso de DERROTA
     public int getLevels(){
         return levels;
     }
     
-    public int getNVisibleTreasures(){
-        return nVisibleTreasures;
-    }
-
-    public int getNHiddenTreasures(){
-        return nHiddenTreasures;
-    }
-    
-    public ArrayList<TreasureKind> getSpecificHiddenTreasures(){
-        return specificHiddenTreasures;
-    }
-    
-    public ArrayList<TreasureKind> getSpecificVisibleTreasures(){
-        return specificVisibleTreasures;
-    }
-    
+    //Métood que comprueba SI HAY MAL ROLLO POR CUMPLIR
     public boolean isEmpty(){
-        return levels == 0 && nVisibleTreasures == 0 && nHiddenTreasures == 0 && death == false && specificHiddenTreasures.isEmpty() && specificVisibleTreasures.isEmpty();
+        return levels == 0 && death == false;
     }
-    
-    public void substractVisibleTreasure(Treasure t){
-        if(nVisibleTreasures > 0)
-            nVisibleTreasures--;
-        else{
-            if(specificVisibleTreasures.contains(t.getType()))
-                specificVisibleTreasures.remove(t.getType());
-        }
-    }
-    
-    public void substractHiddenTreasure(Treasure t){
-        if(nHiddenTreasures > 0)
-            nHiddenTreasures--;
-        else{
-            if(specificHiddenTreasures.contains(t.getType()))
-                specificHiddenTreasures.remove(t.getType());
-        }
-    }
-    public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v,ArrayList<Treasure> h)
-    {
-        BadConsequence bc;
-        ArrayList<TreasureKind> tkv = new ArrayList();
-        ArrayList<TreasureKind> tkh = new ArrayList();
-        
-        for (int i = 0; i < v.size(); i++)
-            tkv.add(v.get(i).getType());
-        for (int i = 0; i < h.size(); i++)
-            tkh.add(h.get(i).getType());
-        
-        if(this.nHiddenTreasures != 0 || this.nVisibleTreasures != 0){
-            int nvisible = 0;
-            int nhidden = 0;
-            if(this.nVisibleTreasures > 0){
-                if(this.nVisibleTreasures > tkv.size())
-                    nvisible = tkv.size();
-                else
-                    nvisible = this.nVisibleTreasures;
-            }
-            if(this.nHiddenTreasures > 0){
-                if(this.nHiddenTreasures > tkh.size())
-                    nhidden = tkh.size();
-                else
-                     nhidden = this.nHiddenTreasures;
-            }
-            bc = new BadConsequence(this.text,0,nvisible,nhidden);
-        }
-        else{
-            ArrayList<TreasureKind> visibleTreasures = new ArrayList();
-            ArrayList<TreasureKind> hiddenTreasures = new ArrayList();
-            
-            if(!this.specificVisibleTreasures.isEmpty()){
-                for (TreasureKind specificVisibleTreasure : specificVisibleTreasures) {
-                    if (tkv.contains(specificVisibleTreasure)) {
-                        visibleTreasures.add(specificVisibleTreasure);
-                    }
-                }
-                    
-            }
-            if(!this.specificHiddenTreasures.isEmpty()){
-                for (TreasureKind specificHiddenTreasure : specificHiddenTreasures) {
-                    if (tkh.contains(specificHiddenTreasure)) {
-                        hiddenTreasures.add(specificHiddenTreasure);
-                    }
-                }
-                    
-            }
-            bc = new BadConsequence(this.text,0,visibleTreasures,hiddenTreasures);
-        }
-        
-        return bc;
-        }
-    
     
     public boolean getDeath(){
         return death;
     }
     
+    //Método que SUBSTRAE un TESORO VISIBLE para cumplir MAL ROLLO.
+    public abstract void substractVisibleTreasure(Treasure t);
     
+    //]Método que SUBSTRAE un TESORO OCULTO para cumplir MAL ROLLO.
+    public abstract void substractHiddenTreasure(Treasure t);
+    
+    //Método que AJUSTA el mal rollo a cumplir por el jugador, en función de sus POSIBILIDADES
+    public abstract BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v,ArrayList<Treasure> h);
+ 
     @Override
     public String toString(){
-        return text + ", NivelesPerdidos = " + Integer.toString(levels) + ", TesorosVisibles = " + Integer.toString(nVisibleTreasures) + ", TesorosEscondidos = " + Integer.toString(nHiddenTreasures) + ", death = " + Boolean.toString(death) + ", Array de tesoros escondidos = " + specificHiddenTreasures.toString() + ", Array de tesoros visibles = " + specificVisibleTreasures.toString();
+        return "\n" + text + "\nNiveles Perdidos: "+levels;
     }
 }
 
