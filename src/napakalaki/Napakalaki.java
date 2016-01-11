@@ -98,6 +98,9 @@ public class Napakalaki {
             CultistPlayer cp = new CultistPlayer(currentPlayer,c);
             int index = players.indexOf(currentPlayer);
             players.set(index, cp);
+            for(int i = 0; i<players.size(); i++)
+                if(players.get(i).Enemy() == currentPlayer)
+                    players.get(i).setEnemy(cp);
             currentPlayer = cp;
         }
         

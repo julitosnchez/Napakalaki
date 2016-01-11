@@ -43,6 +43,11 @@ public class Player {
         this.hiddenTreasures = p.hiddenTreasures;
     }
     
+    public BadConsequence getPendingBadConsequence() {
+        return this.pendingBadConsequence;
+    }
+            
+    
     protected int getOponentLevel(Monster m){
         return m.getCombatLevel();
     }
@@ -63,6 +68,7 @@ public class Player {
     private void bringToLife(){
         dead = false;
     }
+    
     protected int getCombatLevel(){
         int nivelCompleto = 0;
         for (int i = 0; i < visibleTreasures.size(); i++)
@@ -74,18 +80,23 @@ public class Player {
             return nivelCompleto;
             
     }
+    
+    //INCREMENTEO nivel del jugador
     private void incrementLevels(int i){
         if(level+i < MAXLEVEL)
             level = level+i;
         else
             level = MAXLEVEL;
     }
+    
+    //DECREMENTO nivel del jugador
     private void decrementLevels(int l){
         if(level-l > 1)
             level = level-l;
         else
             level = 1;
     }
+    //ASIGNA el mal rollo a cumplir por el jugador
     private void setPendingBadConsequence(BadConsequence b){
         pendingBadConsequence = b;
     }
@@ -126,7 +137,7 @@ public class Player {
         this.setPendingBadConsequence(pendingBad);
     }
     
-    
+    //MÉTODO QUE VERIFICA SI PODEMOS EQUIPARNOS UN TESORO ¡VISIBLE! DE LOS QUE TENEMOS OCULTOS
     private boolean canMakeTreasureVisible(Treasure t){
         if(t.getType() == TreasureKind.ONEHAND){
             return howManyVisibleTreasures(t.getType()) != 2 && howManyVisibleTreasures(TreasureKind.BOTHHANDS) == 0;
@@ -137,7 +148,7 @@ public class Player {
         return howManyVisibleTreasures(t.getType()) == 0;
     }
     
-    
+    //MÉTODO que cuenta NUMERO TESOROS VISIBLES DE un tipo TREASUREKIND
     private int howManyVisibleTreasures(TreasureKind tKind){
         int contador = 0;
         for (int i = 0; i < visibleTreasures.size(); i++)
@@ -145,19 +156,27 @@ public class Player {
                 contador++;
         return contador;
     }
+    
+    //COMPRUEBA si el jugador ha MUERTO
     private void dielfNoTreasures(){
         if(visibleTreasures.isEmpty() && hiddenTreasures.isEmpty())
             dead = true;
     }
+    
+    //CONSULTOR
     public boolean isDead(){
         return dead;
     }
+    
     public ArrayList<Treasure> getHiddenTreasures(){
         return hiddenTreasures;
     }
+    
     public ArrayList<Treasure> getVisibleTreasures(){
         return visibleTreasures;
     }
+    
+    //Método para que el jugador COMBATA contra el monstruo M 
     public CombatResult combat(Monster m){
         int myLevel = this.getCombatLevel();
         int monsterLevel = this.getOponentLevel(m);
@@ -165,7 +184,7 @@ public class Player {
         
         if(myLevel > monsterLevel){
             this.applyPrize(m);
-            if(this.getCombatLevel() >= MAXLEVEL)
+            if(this.level >= MAXLEVEL)
                 combatResult = CombatResult.WINGNAME;
             else{
                  combatResult = CombatResult.WIN;
@@ -182,7 +201,7 @@ public class Player {
         return combatResult;
     }
     
-    
+    //Método para hacer un TESORO VISIBLE (en caso de que se pueda)
     public void makeTreasureVisible(Treasure t){
         boolean canI;
         
@@ -193,6 +212,7 @@ public class Player {
             hiddenTreasures.remove(t);
         }
     }
+    
     public void discardVisibleTreasure(Treasure t){
         visibleTreasures.remove(t);
         if(pendingBadConsequence!= null)
@@ -210,12 +230,13 @@ public class Player {
         this.dielfNoTreasures();
     }
     
-    
+    //MÉTODO QUE devuelve si estamos en ESTADO PARA CAMBIAR DE TURNO
     public boolean validState(){
         if(pendingBadConsequence == null || (pendingBadConsequence.isEmpty() &&  hiddenTreasures.size() <= 4))
           return true;
     return false;
     }
+    
     /*Cuando un jugador está en su primer turno o se ha quedado sin tesoros, hay que
       proporcionarle nuevos tesoros para que pueda seguir jugando*/
     
@@ -309,7 +330,7 @@ public class Player {
 
     @Override
     public String toString(){
-        return name;
+        return name + ", con nivel "+this.level;
     }
     
 }

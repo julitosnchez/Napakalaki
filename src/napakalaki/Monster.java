@@ -28,18 +28,22 @@ public class Monster {
         return name;
     }
     
+    //NIVEL DE COMBATE DEL MONSTRUO
     public int getCombatLevel(){
         return combatLevel;
     }
     
+    //MAL ROLLO A CUMPLIR DEL MONSTRUO EN CASO DE DERROTA
     public BadConsequence getBC(){
         return bc;
     }
     
+    //NIVELES GANADOS SI DERROTAMOS AL MONSTRUO
     public int getLevelsGained(){
         return price.getLevel();
     }
     
+    //TESOROS GANADOS SI DERROTAMOS AL MONSTRUO
     public int getTreasuresGained(){
         return price.getTreasures();
     }
@@ -51,6 +55,6 @@ public class Monster {
     
     @Override
     public String toString(){
-        return "NombreMonstruo = " + name + ", NivelCombate = " + Integer.toString(combatLevel) + ", Buen rollo --> " + price.toString() + ", Mal rollo --> " + bc.toString();
+        return "NombreMonstruo = " + name + "\nNivelCombate = " + Integer.toString(combatLevel) + "\nBUEN ROLLO" + price.toString() + "\nMAL ROLLO" + bc.toString();
     }
 }

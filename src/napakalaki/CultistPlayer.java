@@ -27,7 +27,7 @@ public class CultistPlayer extends Player {
     protected Treasure giveMeATreasure(){
         Random r = new Random();
         ArrayList<Treasure> vt = super.getVisibleTreasures();
-        int index = r.nextInt()*vt.size();
+        int index = r.nextInt(vt.size());
         return vt.get(index);
     }
     
@@ -43,6 +43,11 @@ public class CultistPlayer extends Player {
     @Override
     protected int getOponentLevel(Monster m){
         return m.getCombatLevelAgainstCultistPlayer();
+    }
+    
+    @Override
+    protected boolean shouldConvert(){
+        return false;
     }
     
     @Override

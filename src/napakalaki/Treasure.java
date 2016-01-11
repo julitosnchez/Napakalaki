@@ -7,7 +7,7 @@ package napakalaki;
 
 /**
  *
- * @author JULIO
+ * @author julitosnchez
  */
 public class Treasure {
     private String name;
@@ -20,21 +20,24 @@ public class Treasure {
         type = t;
     }
     
+    //NOMBRE DEL TESORO
     public String getName(){
         return name;
     }
     
+    //BONUS que proporciona si lo tenemos VISIBLE
     public int getBonus(){
         return bonus;
     }
     
+    //TIPO de tesoro
     public TreasureKind getType(){
         return type;
     }
     
     @Override
     public String toString(){
-        return name+"["+type.toString()+"]";
+        return name+"["+type.toString()+"]"+"--bonus--> "+bonus;
     }
     
  }
